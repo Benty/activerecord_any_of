@@ -47,7 +47,8 @@ module ActiverecordAnyOf
 
         def bind_values_for( query )
           if ActiveRecord::VERSION::MAJOR >= 5
-            query.bound_attributes.map { |attr| [ attr.name, attr.value ] }
+            [] # This is now handled by AREL
+            # query.bound_attributes.map { |attr| [ attr.name, attr.value ] }
           else
             query.bind_values
           end
